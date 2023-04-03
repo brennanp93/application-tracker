@@ -20,7 +20,7 @@ export default function App() {
             {/* Route components in here */}
             <Route path="/rejections" />
             <Route path="/addrecord" element={<AddJobForm />} />
-<Route path="/" element={<Columns/>}/>
+<Route path="/joblist" element={<Columns/>}/>
           </Routes>
 
         </>
