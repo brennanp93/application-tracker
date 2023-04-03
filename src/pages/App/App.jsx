@@ -5,9 +5,8 @@ import "./App.css";
 import AuthPage from "../AuthPage/AuthPage";
 
 import NavBar from "../../components/NavBar/NavBar";
-import Offer from "../../components/Offer";
-import Applied from "../../components/Applied";
-import Interviewing from "../../components/Interviewing";
+import AddJobForm from "../AddJobForm";
+import Columns from "../Columns";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -20,11 +19,10 @@ export default function App() {
           <Routes>
             {/* Route components in here */}
             <Route path="/rejections" />
-            <Route path="/addrecord" />
+            <Route path="/addrecord" element={<AddJobForm />} />
+<Route path="/" element={<Columns/>}/>
           </Routes>
-          <Applied />
-          <Interviewing />
-          <Offer />
+
         </>
       ) : (
         <AuthPage setUser={setUser} />
