@@ -7,6 +7,9 @@ const ensureLoggedIn = require("../../config/ensureLoggedIn");
 
 // GET /api/joblist
 router.get("/", jobListCtrl.index);
+
+//POST /api/joblist
+router.post("/", jobListCtrl.create)
 // POST /api/users/login
 // router.post("/login", usersCtrl.login);
 

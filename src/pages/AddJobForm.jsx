@@ -1,29 +1,29 @@
 import { useState } from "react";
 
-export default function AddJobForm({ planningList, setPlanningList }) {
-  const [newTodo, setNewTodo] = useState({
-    id: "",
-    content: "",
-    step: 1,
+export default function AddJobForm({ addCheckListItem, setPlanningList }) {
+  const [newJob, newNewJob] = useState({
+    companyName: "",
+    jobTitle: "",
+    jobDescription: "",
+    dateApplied: "",
+    stage: "Applied",
   });
 
   function handleSubmit(e) {
     e.preventDefault();
-    setPlanningList([...planningList, newTodo]);
-    setNewTodo({
-      id: "",
-      content: "",
-      step: 1,
+    addCheckListItem(newJob);
+    newNewJob({
+      companyName: "",
+      jobTitle: "",
+      jobDescription: "",
+      dateApplied: "",
+      stage: "Applied",
     });
   }
 
   function handleChange(evt) {
-    const addItem = {
-      id: planningList?.length + 1,
-      content: evt.target.value,
-      step: 1,
-    };
-    setNewTodo(addItem);
+    const formFields = { ...newJob, [evt.target.name]: evt.target.value };
+    newNewJob(formFields);
   }
 
   return (
@@ -31,13 +31,42 @@ export default function AddJobForm({ planningList, setPlanningList }) {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name="conent"
-          value={newTodo.content}
+          name="companyName"
+          value={newJob.companyName}
+          onChange={handleChange}
+          required
+          autoComplete="off"
+          placeholder="Company Name"
+        />
+        <input
+          type="text"
+          name="jobTitle"
+          value={newJob.jobTitle}
+          onChange={handleChange}
+          required
+          autoComplete="off"
+          placeholder="Job Title"
+        />
+        <textarea
+          type="text"
+          name="jobDescription"
+          value={newJob.jobDescription}
+          onChange={handleChange}
+          required
+          autoComplete="off"
+          placeholder="Job Description"
+        />
+        <input
+          type="date"
+          name="dateApplied"
+          value={newJob.dateApplied}
           onChange={handleChange}
           required
           autoComplete="off"
         />
-        <button type="submit"><img src="./add-new.png" alt="" /></button>
+        <button type="submit">
+          <img src="./add-new.png" alt="" />
+        </button>
       </form>
     </div>
   );
