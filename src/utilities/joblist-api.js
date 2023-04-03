@@ -8,3 +8,7 @@ export async function getAll() {
 export async function create(jobListData) {
   return sendRequest(BASE_URL, "POST", jobListData)
 }
+
+export async function deleteJob(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+};

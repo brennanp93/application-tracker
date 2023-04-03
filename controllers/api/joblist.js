@@ -3,6 +3,7 @@ const JobList = require("../../models/joblist");
 module.exports = {
   index,
   create,
+  delete: deleteItem
 };
 
 async function index(req, res) {
@@ -19,4 +20,10 @@ async function create(req, res) {
   } catch {
     res.status(404);
   }
+}
+
+async function deleteItem(req, res){
+  req.body.user = req.user._id;
+  const listItem = await JobList.findOneAndDelete(req.params._id);
+  res.json(listItem)
 }

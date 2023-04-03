@@ -10,6 +10,9 @@ router.get("/", jobListCtrl.index);
 
 //POST /api/joblist
 router.post("/", jobListCtrl.create)
+
+// Delete /api/joblist/id
+router.delete(`/:id`, ensureLoggedIn, jobListCtrl.delete)
 // POST /api/users/login
 // router.post("/login", usersCtrl.login);
 

@@ -11,9 +11,16 @@ import Columns from "../Columns";
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [jobList, setJobList] = useState([]);
+
   async function addCheckListItem(checkListData) {
     const newCheckListItem = await jobListAPI.create(checkListData);
     setJobList([...jobList, newCheckListItem]);
+  }
+
+  async function deleteJob(id) {
+    await jobListAPI.deleteJob(id);
+    const afterDeleteList = jobList.filter((job) => job._id !== id);
+    setJobList(afterDeleteList);
   }
 
   useEffect(
@@ -41,7 +48,12 @@ export default function App() {
               path="/addrecord"
               element={<AddJobForm addCheckListItem={addCheckListItem} />}
             />
-            <Route path="/joblist" element={<Columns jobList={jobList} />} />
+            <Route
+              path="/joblist"
+              element={
+                <Columns jobList={jobList} deleteJob={deleteJob} />
+              }
+            />
           </Routes>
         </>
       ) : (
