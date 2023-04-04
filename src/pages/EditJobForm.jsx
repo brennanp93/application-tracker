@@ -6,6 +6,20 @@ export default function EditJobForm({ jobList, editJobEntry }) {
   const { id } = useParams();
   const editedJob = jobList?.filter((job) => job._id === id)[0];
   const [updatedJob, setUpdatedJob] = useState(editedJob);
+  
+  
+  
+  // const dateStr = updatedJob?.dateApplied;
+  // const date = new Date(dateStr);
+  
+  // const options = {
+  //   month: "2-digit",
+  //   day: "2-digit",
+  //   year: "numeric",
+  // };
+  
+  // const formattedDate = date.toLocaleDateString("en-US", options);
+
 
   function handleChange(evt) {
     const editedJobData = {
@@ -58,6 +72,7 @@ export default function EditJobForm({ jobList, editJobEntry }) {
             required
             autoComplete="off"
           />
+          <button onClick={() => navigate("/joblist")}>Go Back</button>
           <button type="submit">Submit</button>
         </form>
       </div>

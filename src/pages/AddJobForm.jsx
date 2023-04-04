@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AddJobForm({ addCheckListItem, setPlanningList }) {
+  const navigate = useNavigate()
   const [newJob, setNewJob] = useState({
     companyName: "",
     jobTitle: "",
@@ -20,6 +21,7 @@ export default function AddJobForm({ addCheckListItem, setPlanningList }) {
       dateApplied: "",
       stage: "Applied",
     });
+    navigate("/joblist")
   }
 
   function handleChange(evt) {

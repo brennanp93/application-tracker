@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useState } from "react";
+// import { useState } from "react";
 
-export default function SingleJob({ jobList }) {
+export default function SingleJob({ jobList, deleteJob }) {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -19,12 +19,16 @@ export default function SingleJob({ jobList }) {
 
   return (
     <>
-      <div>
+      <div className="single-job-card">
         <h1>{oneJob?.companyName}</h1>
         <h2>{oneJob?.jobTitle}</h2>
         <h2>{formattedDate}</h2>
         <p>{oneJob?.jobDescription}</p>
-        <button onClick={() => navigate('/joblist')}>Go Back</button>
+        <button onClick={() => navigate("/joblist")}>Go Back</button>
+        <button onClick={() => navigate(`/joblist/${oneJob?._id}/edit`)}>
+          Edit Job
+        </button>
+        <button onClick={() => deleteJob(oneJob?._id)}>❌</button>
       </div>
     </>
   );

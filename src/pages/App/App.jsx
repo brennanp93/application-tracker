@@ -13,7 +13,7 @@ import EditJobForm from "../EditJobForm";
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [jobList, setJobList] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function addCheckListItem(checkListData) {
     const newCheckListItem = await jobListAPI.create(checkListData);
@@ -24,15 +24,15 @@ export default function App() {
     await jobListAPI.deleteJob(id);
     const afterDeleteList = jobList.filter((job) => job._id !== id);
     setJobList(afterDeleteList);
+    navigate("/joblist");
   }
 
   async function editJobEntry(updatedJobListData, id) {
-    console.log(updatedJobListData, "HELLO")
+    console.log(updatedJobListData, "HELLO");
     await jobListAPI.editJob(updatedJobListData, id);
-    const afterEdit =  await jobListAPI.getAll();
-    setJobList(afterEdit)
-    navigate("/joblist")
-
+    const afterEdit = await jobListAPI.getAll();
+    setJobList(afterEdit);
+    navigate("/joblist");
   }
 
   useEffect(
@@ -64,8 +64,16 @@ export default function App() {
               path="/joblist"
               element={<Columns jobList={jobList} deleteJob={deleteJob} />}
             />
-            <Route path="/joblist/:id/singlejob" element={<SingleJob jobList={jobList} />} />
-            <Route path="/joblist/:id/edit" element={<EditJobForm jobList={jobList} editJobEntry={editJobEntry} />} />
+            <Route
+              path="/joblist/:id/singlejob"
+              element={<SingleJob jobList={jobList} deleteJob={deleteJob} />}
+            />
+            <Route
+              path="/joblist/:id/edit"
+              element={
+                <EditJobForm jobList={jobList} editJobEntry={editJobEntry} />
+              }
+            />
           </Routes>
         </>
       ) : (

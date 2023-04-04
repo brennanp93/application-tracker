@@ -9,3 +9,7 @@
   grid-column: 1/2;
   color: red;
 }
+
+.step-box{
+  border: solid black 2px;
+}
