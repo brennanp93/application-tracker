@@ -67,6 +67,7 @@ export default function AddJobForm({ addCheckListItem, setPlanningList }) {
         />
         <button type="submit">
           <img src="./add-new.png" alt="" />
+          Submit
         </button>
       </form>
     </div>

@@ -8,7 +8,7 @@ module.exports = {
 
 async function index(req, res) {
   const entireJobList = await JobList.find({ user: req.user._id });
-  console.log(entireJobList)
+  console.log(entireJobList, '8:36')
   res.json(entireJobList)
 }
 

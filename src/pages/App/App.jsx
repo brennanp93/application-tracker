@@ -7,6 +7,7 @@ import * as jobListAPI from "../../utilities/joblist-api";
 import NavBar from "../../components/NavBar/NavBar";
 import AddJobForm from "../AddJobForm";
 import Columns from "../Columns";
+import SingleJob from "../../components/SingleJob";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -50,10 +51,9 @@ export default function App() {
             />
             <Route
               path="/joblist"
-              element={
-                <Columns jobList={jobList} deleteJob={deleteJob} />
-              }
+              element={<Columns jobList={jobList} deleteJob={deleteJob} />}
             />
+            <Route path="/joblist/:id/singlejob" element={<SingleJob jobList={jobList} />} />
           </Routes>
         </>
       ) : (
