@@ -5,7 +5,17 @@ module.exports = {
   create,
   delete: deleteItem,
   update,
+  updateStage,
 };
+
+async function updateStage(req, res) {
+  let id = req.body._id;
+  const filter = { _id: id };
+  const update = { stage: req.body.stage };
+  const updatedJob = await JobList.findOneAndUpdate(filter, update);
+  console.log(filter, "filter");
+  res.json(updatedJob);
+}
 
 async function index(req, res) {
   const entireJobList = await JobList.find({ user: req.user._id });

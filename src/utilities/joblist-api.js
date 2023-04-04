@@ -17,3 +17,7 @@ export async function editJob(updatedJobListData, id) {
   console.log(updatedJobListData, "joblist api");
   return sendRequest(`${BASE_URL}/${id}/update`, "PUT", updatedJobListData);
 }
+
+export async function updateStage(jobStageData, id) {
+  return sendRequest(`${BASE_URL}/${id}`, "PUT", jobStageData)
+}

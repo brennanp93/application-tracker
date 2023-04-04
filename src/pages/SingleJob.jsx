@@ -16,6 +16,7 @@ export default function SingleJob({ jobList, deleteJob }) {
   };
 
   const formattedDate = date.toLocaleDateString("en-US", options);
+  
 
   return (
     <>
@@ -26,10 +27,33 @@ export default function SingleJob({ jobList, deleteJob }) {
         <p>{oneJob?.jobDescription}</p>
         <button onClick={() => navigate("/joblist")}>Go Back</button>
         <button onClick={() => navigate(`/joblist/${oneJob?._id}/edit`)}>
-          Edit Job
+          Edit
         </button>
-        <button onClick={() => deleteJob(oneJob?._id)}>❌</button>
+        <button onClick={() => deleteJob(oneJob?._id)}>Delete</button>
+        {/* <form onSubmit={updateStage}>
+                <select name="" id="">
+                  <label>Select Stage</label>
+                  <option value="Applied">Applied</option>
+                  <option value="Phone Screen">Phone Screen</option>
+                  <option value="Interview">Interview</option>
+                  <option value="Offer">Offer</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+                <button onClick={() => updateStage(idx, oneJob?._id)}>Update</button>
+              </form> */}
       </div>
     </>
   );
 }
+
+{/* <form onSubmit={updateStage}>
+<select name="" id="">
+  <label>Select Stage</label>
+  <option value="Applied">Applied</option>
+  <option value="Phone Screen">Phone Screen</option>
+  <option value="Interview">Interview</option>
+  <option value="Offer">Offer</option>
+  <option value="Rejected">Rejected</option>
+</select>
+<button onClick={() => updateStage(idx, job?._id)}>Update</button>
+</form> */}

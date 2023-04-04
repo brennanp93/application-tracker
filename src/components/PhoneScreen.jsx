@@ -1,13 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Interviewing({
-  setStep,
-  deleteJob,
-  jobList,
-  updateStage,
-}) {
+export default function PhoneScreen({ setStep, deleteJob, jobList, updateStage }) {
   const navigate = useNavigate();
-  let appliedJobs = jobList?.filter((job) => job.stage === "Offer");
+  let appliedJobs = jobList?.filter((job) => job.stage === "Phone Screen");
 
   function handleUpdateStage(stage, id) {
     let job = jobList.filter((j) => j._id === id)[0];
@@ -17,7 +12,7 @@ export default function Interviewing({
 
   return (
     <div className="column1">
-      <h1>Offer</h1>
+      <h1>Phone Screen</h1>
       <>
         {appliedJobs?.map((job, idx) => (
           <div key={job._id} className="step-box">
@@ -30,7 +25,7 @@ export default function Interviewing({
             >
               View Entire Job
             </a>
-            <button onClick={() => handleUpdateStage(idx, job?._id)}>
+            <button onClick={() => handleUpdateStage("Interviewing", job?._id)}>
               update stage
             </button>
           </div>

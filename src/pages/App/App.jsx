@@ -14,7 +14,7 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [jobList, setJobList] = useState([]);
   const navigate = useNavigate();
-
+console.log(jobList)
   async function addCheckListItem(checkListData) {
     const newCheckListItem = await jobListAPI.create(checkListData);
     setJobList([...jobList, newCheckListItem]);
@@ -33,6 +33,12 @@ export default function App() {
     const afterEdit = await jobListAPI.getAll();
     setJobList(afterEdit);
     navigate("/joblist");
+  }
+
+  async function updateStage(jobStageData, id) {
+    await jobListAPI.updateStage(jobStageData, id);
+    const afterUpdateStage = await jobListAPI.getAll();
+    setJobList(afterUpdateStage);
   }
 
   useEffect(
@@ -62,7 +68,7 @@ export default function App() {
             />
             <Route
               path="/joblist"
-              element={<Columns jobList={jobList} deleteJob={deleteJob} />}
+              element={<Columns jobList={jobList} deleteJob={deleteJob} updateStage={updateStage} />}
             />
             <Route
               path="/joblist/:id/singlejob"

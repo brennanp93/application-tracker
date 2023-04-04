@@ -1,15 +1,38 @@
-export default function Interviewing({ planningList, setStep, deleteStep }) {
-  let column1Data = planningList?.filter((item) => item.step === 1);
+import { useNavigate } from "react-router-dom";
+
+export default function Interviewing({
+  setStep,
+  deleteJob,
+  jobList,
+  updateStage,
+}) {
+  const navigate = useNavigate();
+  let appliedJobs = jobList?.filter((job) => job.stage === "Interviewing");
+
+  function handleUpdateStage(stage, id) {
+    let job = jobList.filter((j) => j._id === id)[0];
+    job.stage = stage;
+    updateStage(job, id);
+  }
 
   return (
     <div className="column1">
-      <h1>Interviewing or Phone Call2</h1>
+      <h1>Interviewing</h1>
       <>
-        {column1Data?.map((item, idx) => (
-          <div key={item.id} className="step-box">
-            <p>{item.content}</p>
-            <button onClick={() => setStep(item.id, 2)}>➡️</button>
-            <button onClick={() => deleteStep(item.id)}>❌</button>
+        {appliedJobs?.map((job, idx) => (
+          <div key={job._id} className="step-box">
+            <h2>{job.companyName}</h2>
+            <p>{job.jobTitle}</p>
+            <p>{new Date(job?.dateApplied).toLocaleDateString()}</p>
+            <a
+              href="#"
+              onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
+            >
+              View Entire Job
+            </a>
+            <button onClick={() => handleUpdateStage("Offer", job?._id)}>
+              update stage
+            </button>
           </div>
         ))}
       </>
