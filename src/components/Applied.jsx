@@ -15,10 +15,12 @@ export default function Applied({ setStep, deleteJob, jobList }) {
             <button onClick={() => navigate(`/joblist/${job._id}/singlejob`)}>
               View Entire Submission
             </button>
-            <button onClick={() => setStep(job._id, 1)}>⬅️</button>
+            {/* <button onClick={() => setStep(job._id, 1)}>⬅️</button>
             <button onClick={() => setStep(job._id, 3)}>➡️</button>
-            <button onClick={() => deleteJob(job._id)}>❌</button>
-            <button>Edit</button>
+            <button onClick={() => deleteJob(job._id)}>❌</button> */}
+            <button onClick={() => navigate(`/joblist/${job._id}/edit`)}>
+              edit
+            </button>
           </div>
         ))}
       </>

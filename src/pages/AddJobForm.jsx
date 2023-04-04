@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function AddJobForm({ addCheckListItem, setPlanningList }) {
-  const [newJob, newNewJob] = useState({
+  const [newJob, setNewJob] = useState({
     companyName: "",
     jobTitle: "",
     jobDescription: "",
@@ -13,7 +13,7 @@ export default function AddJobForm({ addCheckListItem, setPlanningList }) {
   function handleSubmit(e) {
     e.preventDefault();
     addCheckListItem(newJob);
-    newNewJob({
+    setNewJob({
       companyName: "",
       jobTitle: "",
       jobDescription: "",
@@ -24,7 +24,7 @@ export default function AddJobForm({ addCheckListItem, setPlanningList }) {
 
   function handleChange(evt) {
     const formFields = { ...newJob, [evt.target.name]: evt.target.value };
-    newNewJob(formFields);
+    setNewJob(formFields);
   }
 
   return (

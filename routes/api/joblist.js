@@ -13,6 +13,9 @@ router.post("/", jobListCtrl.create)
 
 // Delete /api/joblist/id
 router.delete(`/:id`, ensureLoggedIn, jobListCtrl.delete)
+
+//Edit Job Information
+router.put('/:id/update', jobListCtrl.update)
 // POST /api/users/login
 // router.post("/login", usersCtrl.login);
 
