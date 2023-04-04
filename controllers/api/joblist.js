@@ -4,25 +4,25 @@ module.exports = {
   index,
   create,
   delete: deleteItem,
-  update
+  update,
 };
 
 async function index(req, res) {
   const entireJobList = await JobList.find({ user: req.user._id });
-  res.json(entireJobList)
+  res.json(entireJobList);
 }
 
-async function update( req,res, next) {
-  console.log(req.params.id, "HELLO")
-  try{
-    await JobList.findByIdAndUpdate({_id: req.params.id}, req.body);
-    const listItem = await JobList.find({user: req.user._id});
-    console.log(listItem)
-    res.json(listItem)
+async function update(req, res, next) {
+  try {
+    await JobList.findByIdAndUpdate({ _id: req.params.id }, req.body);
+    const listItem = await JobList.find({ user: req.user._id });
+    console.log(listItem);
+    res.json(listItem);
   } catch (err) {
-    return next(err)
+    return next(err);
   }
 }
+
 async function create(req, res) {
   req.body.user = req.user._id;
   try {
@@ -33,8 +33,8 @@ async function create(req, res) {
   }
 }
 
-async function deleteItem(req, res){
+async function deleteItem(req, res) {
   req.body.user = req.user._id;
   const listItem = await JobList.findOneAndDelete(req.params._id);
-  res.json(listItem)
+  res.json(listItem);
 }

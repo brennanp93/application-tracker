@@ -6,7 +6,6 @@ export default function EditJobForm({ jobList, editJobEntry }) {
   const { id } = useParams();
   const editedJob = jobList?.filter((job) => job._id === id)[0];
   const [updatedJob, setUpdatedJob] = useState(editedJob);
-  console.log(updatedJob);
 
   function handleChange(evt) {
     const editedJobData = {
@@ -59,9 +58,7 @@ export default function EditJobForm({ jobList, editJobEntry }) {
             required
             autoComplete="off"
           />
-          <button type="submit">
-            Submit
-          </button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </>
