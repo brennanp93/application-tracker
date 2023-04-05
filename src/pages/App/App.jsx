@@ -6,9 +6,10 @@ import AuthPage from "../AuthPage/AuthPage";
 import * as jobListAPI from "../../utilities/joblist-api";
 import NavBar from "../../components/NavBar/NavBar";
 import AddJobForm from "../AddJobForm";
-import Columns from "../Columns";
+import Stages from "../Stages";
 import SingleJob from "../SingleJob";
 import EditJobForm from "../EditJobForm";
+import Rejections from "../../components/Rejections";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -61,14 +62,14 @@ console.log(jobList)
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
-            <Route path="/rejections" />
+            <Route path="/rejections" element={<Rejections jobList={jobList} deleteJob={deleteJob} />}/>
             <Route
               path="/addrecord"
               element={<AddJobForm addCheckListItem={addCheckListItem} />}
             />
             <Route
               path="/joblist"
-              element={<Columns jobList={jobList} deleteJob={deleteJob} updateStage={updateStage} />}
+              element={<Stages jobList={jobList} deleteJob={deleteJob} updateStage={updateStage} />}
             />
             <Route
               path="/joblist/:id/singlejob"

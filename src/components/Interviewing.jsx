@@ -5,15 +5,16 @@ export default function Interviewing({
   deleteJob,
   jobList,
   updateStage,
+  handleUpdateStage
 }) {
   const navigate = useNavigate();
   let appliedJobs = jobList?.filter((job) => job.stage === "Interviewing");
 
-  function handleUpdateStage(stage, id) {
-    let job = jobList.filter((j) => j._id === id)[0];
-    job.stage = stage;
-    updateStage(job, id);
-  }
+  // function handleUpdateStage(stage, id) {
+  //   let job = jobList.filter((j) => j._id === id)[0];
+  //   job.stage = stage;
+  //   updateStage(job, id);
+  // }
 
   return (
     <div className="column1">
@@ -30,8 +31,14 @@ export default function Interviewing({
             >
               View Entire Job
             </a>
+            <button onClick={() => handleUpdateStage("Phone Screen", job?._id)}>
+              left arrow
+            </button>
             <button onClick={() => handleUpdateStage("Offer", job?._id)}>
-              update stage
+              right arrow
+            </button>
+            <button onClick={() => handleUpdateStage("Rejected", job?._id)}>
+             X
             </button>
           </div>
         ))}
