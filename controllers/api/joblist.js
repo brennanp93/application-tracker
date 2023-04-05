@@ -13,7 +13,6 @@ async function updateStage(req, res) {
   const filter = { _id: id };
   const update = { stage: req.body.stage };
   const updatedJob = await JobList.findOneAndUpdate(filter, update);
-  console.log(filter, "filter");
   res.json(updatedJob);
 }
 
@@ -26,7 +25,6 @@ async function update(req, res, next) {
   try {
     await JobList.findByIdAndUpdate({ _id: req.params.id }, req.body);
     const listItem = await JobList.find({ user: req.user._id });
-    console.log(listItem);
     res.json(listItem);
   } catch (err) {
     return next(err);
