@@ -115,6 +115,9 @@ position: fixed;
 .expand-info {
   grid-column: 3/4;
   place-self: center;
+  background: none;
+  cursor: pointer;
+  border: none;
 }
 
 .rejected-img {

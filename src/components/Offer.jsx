@@ -21,7 +21,7 @@ export default function Interviewing({
             <p>{job.jobTitle}</p>
             {/* <p>{new Date(job?.dateApplied).toLocaleDateString()}</p> */}
           </div>
-          <a
+          <button
             className="expand-info"
             href="#"
             onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
@@ -31,7 +31,7 @@ export default function Interviewing({
               src="/expand.png"
               alt="View Entire Job"
             />
-          </a>
+          </button>
             <button
               className="left"
               onClick={() => handleUpdateStage("Interviewing", job?._id)}

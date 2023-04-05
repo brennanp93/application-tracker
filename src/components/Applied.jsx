@@ -23,13 +23,13 @@ export default function Applied({
               <p>{job.jobTitle}</p>
               {/* <p>{new Date(job?.dateApplied).toLocaleDateString()}</p> */}
             </div>
-            <a
+            <button
               className="expand-info"
               href="#"
               onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
             >
               <img className="image" src="/expand.png" alt="View Entire Job" />
-            </a>
+            </button>
             <button
               className="rejected"
               onClick={() => handleUpdateStage("Rejected", job?._id)}
