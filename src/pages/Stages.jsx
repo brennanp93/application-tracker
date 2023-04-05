@@ -10,7 +10,7 @@ export default function Stages({ jobList, deleteJob, updateStage }) {
   }
 
   return (
-    <div>
+    <div className="stage-grid-box">
       <Applied
         jobList={jobList}
         deleteJob={deleteJob}

@@ -5,7 +5,7 @@ export default function Interviewing({
   deleteJob,
   jobList,
   updateStage,
-  handleUpdateStage
+  handleUpdateStage,
 }) {
   const navigate = useNavigate();
   let appliedJobs = jobList?.filter((job) => job.stage === "Offer");
@@ -17,7 +17,7 @@ export default function Interviewing({
   // }
 
   return (
-    <div className="column1">
+    <div className="offer">
       <h1>Offer</h1>
       <>
         {appliedJobs?.map((job, idx) => (
@@ -31,11 +31,17 @@ export default function Interviewing({
             >
               View Entire Job
             </a>
-            <button onClick={() => handleUpdateStage("Interviewing", job?._id)}>
-              left arrow
+            <button
+              className="left"
+              onClick={() => handleUpdateStage("Interviewing", job?._id)}
+            >
+              ⬅️
             </button>
-            <button onClick={() => handleUpdateStage("Rejected", job?._id)}>
-             X
+            <button
+              className="rejected"
+              onClick={() => handleUpdateStage("Rejected", job?._id)}
+            >
+              rejected
             </button>
           </div>
         ))}

@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-export default function Rejections({jobList, handleUpdateStage}) {
+export default function Rejections({ jobList, handleUpdateStage }) {
   const navigate = useNavigate();
 
-  let rejectedJobs = jobList?.filter(j => j.stage = "Rejected")
+  let rejectedJobs = jobList?.filter((j) => (j.stage = "Rejected"));
 
- console.log(jobList)
+  //  console.log(jobList)
   return (
     <div className="column1">
       <h1>Rejected Jobs</h1>
@@ -21,10 +21,13 @@ export default function Rejections({jobList, handleUpdateStage}) {
               View Entire Job
             </a>
             <button onClick={() => handleUpdateStage("Phone Screen", job?._id)}>
-             right arrow
+              right arrow
             </button>
-            <button onClick={() => handleUpdateStage("Rejected", job?._id)}>
-             X
+            <button
+              className="rejected"
+              onClick={() => handleUpdateStage("Rejected", job?._id)}
+            >
+              X
             </button>
           </div>
         ))}

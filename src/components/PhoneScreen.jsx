@@ -6,7 +6,7 @@ export default function PhoneScreen({ setStep, deleteJob, jobList, updateStage, 
 
 
   return (
-    <div className="column1">
+    <div className="phone-screen">
       <h1>Phone Screen</h1>
       <>
         {appliedJobs?.map((job, idx) => (
@@ -20,14 +20,15 @@ export default function PhoneScreen({ setStep, deleteJob, jobList, updateStage, 
             >
               View Entire Job
             </a>
-            <button onClick={() => handleUpdateStage("Applied", job?._id)}>
-              Left Arrow
+            <button className="left" onClick={() => handleUpdateStage("Applied", job?._id)}>
+            ⬅️
             </button>
-            <button onClick={() => handleUpdateStage("Interviewing", job?._id)}>
-              right arrow
+            <button
+            className="right" onClick={() => handleUpdateStage("Interviewing", job?._id)}>
+            ➡️
             </button>
-            <button onClick={() => handleUpdateStage("Rejected", job?._id)}>
-             X
+            <button className="rejected" onClick={() => handleUpdateStage("Rejected", job?._id)}>
+             Rejected
             </button>
           </div>
         ))}

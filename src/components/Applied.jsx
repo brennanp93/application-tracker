@@ -1,6 +1,12 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Applied({ setStep, deleteJob, jobList, updateStage, handleUpdateStage }) {
+export default function Applied({
+  setStep,
+  deleteJob,
+  jobList,
+  updateStage,
+  handleUpdateStage,
+}) {
   const navigate = useNavigate();
   let appliedJobs = jobList?.filter((job) => job.stage === "Applied");
 
@@ -11,25 +17,33 @@ export default function Applied({ setStep, deleteJob, jobList, updateStage, hand
   // }
 
   return (
-    <div className="column1">
+    <div className="applied">
       <h1>Applied</h1>
       <>
         {appliedJobs?.map((job, idx) => (
           <div key={job._id} className="step-box">
-            <h2>{job.companyName}</h2>
-            <p>{job.jobTitle}</p>
-            <p>{new Date(job?.dateApplied).toLocaleDateString()}</p>
-            <a
-              href="#"
-              onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
+            <div className="job-info">
+              <h2>{job.companyName}</h2>
+              <p>{job.jobTitle}</p>
+              <p>{new Date(job?.dateApplied).toLocaleDateString()}</p>
+              <a
+                href="#"
+                onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
+              >
+                View Entire Job
+              </a>
+            </div>
+            <button
+              className="left"
+              onClick={() => handleUpdateStage("Phone Screen", job?._id)}
             >
-              View Entire Job
-            </a>
-            <button onClick={() => handleUpdateStage("Phone Screen", job?._id)}>
-             right arrow
+              ➡️
             </button>
-            <button onClick={() => handleUpdateStage("Rejected", job?._id)}>
-             X
+            <button
+              className="rejected"
+              onClick={() => handleUpdateStage("Rejected", job?._id)}
+            >
+              Rejected
             </button>
           </div>
         ))}
