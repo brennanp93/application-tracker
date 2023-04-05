@@ -15,7 +15,7 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [jobList, setJobList] = useState([]);
   const navigate = useNavigate();
-// console.log(jobList)
+  // console.log(jobList)
   async function addCheckListItem(checkListData) {
     const newCheckListItem = await jobListAPI.create(checkListData);
     setJobList([...jobList, newCheckListItem]);
@@ -62,14 +62,29 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
-            <Route path="/rejections" element={<Rejections jobList={jobList} deleteJob={deleteJob} />}/>
+            <Route
+              path="/rejections"
+              element={
+                <Rejections
+                  jobList={jobList}
+                  deleteJob={deleteJob}
+                  updateStage={updateStage}
+                />
+              }
+            />
             <Route
               path="/addrecord"
               element={<AddJobForm addCheckListItem={addCheckListItem} />}
             />
             <Route
               path="/joblist"
-              element={<Stages jobList={jobList} deleteJob={deleteJob} updateStage={updateStage} />}
+              element={
+                <Stages
+                  jobList={jobList}
+                  deleteJob={deleteJob}
+                  updateStage={updateStage}
+                />
+              }
             />
             <Route
               path="/joblist/:id/singlejob"

@@ -6,7 +6,7 @@
   grid-template-rows: repeat(6, 1fr);
 }
 .stage-grid-box {
-  border: solid black 1px;
+  /* border: solid black 1px; */
   grid-column: 1/4;
   grid-row: 2/7;
   display: grid;
@@ -25,49 +25,74 @@
   grid-row: 1/5;
   border: solid black 1px;
   overflow: scroll;
+  margin: 1px;
+  border-radius: 2px;
+  background-color: rgb(240, 241, 241);
 }
 .applied {
   grid-column: 1/2;
-  color: red;
-  background-color: lightblue;
 }
 
 .phone-screen {
   grid-column: 2/3;
-  background-color: lightcyan;
+  /* background-color: lightcyan; */
 }
 .interviewing {
   grid-column: 3/4;
-  background-color: lightgray;
+  /* background-color: lightgray; */
 }
 .offer {
   grid-column: 4/5;
-  background-color: lightskyblue;
+  /* background-color: lightskyblue; */
 }
 
 .step-box {
-  border: solid black 2px;
+  border: solid rgb(142, 140, 140) 2px;
+  border-radius: 7px;
   background-color: white;
-  margin: 2%;
+  margin: 0 2% 5% 2%;
   padding: 1%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 25%, 75%, 25%;
   grid-template-rows: repeat(3, 1fr);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.292);
 }
-.left{
+
+.left {
   grid-column: 1/2;
-  grid-row: 2/3;
+  grid-row: 3/4;
 }
-.right{
+.right {
   grid-column: 3/4;
   grid-row: 2/3;
 }
-.left,.right, .rejected{
+.left,
+.right,
+.rejected {
   background: none;
+  cursor: pointer;
   border: none;
+  grid-row: 3/4;
+  /* width: 50px; */
+}
+.rejected {
+  grid-row: 1/2;
+  width: 50px;
+  place-self: center;
 }
 
-.job-info{
+.job-info {
   grid-column: 2/3;
   grid-row: 1/4;
+}
+.expand-img {
+  width: 25px;
+}
+.expand-info {
+  grid-column: 3/4;
+  place-self: center;
+}
+
+.rejected-img {
+  width: 25px;
 }
