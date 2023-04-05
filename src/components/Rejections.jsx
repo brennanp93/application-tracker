@@ -14,36 +14,40 @@ export default function Rejections({ jobList, updateStage }) {
   }
 
   return (
-    <div className="rejections">
-      <div>
-        <h1>Rejected Jobs</h1>
+    <>
+      <h1>Rejected Jobs</h1>
+      <div className="rejection-grid-box">
+        {/* <div> */}
         <>
           {rejectedJobs?.map((job, idx) => (
-            <div key={job._id} className="step-box">
-              <h2>{job.companyName}</h2>
-              <p>{job.jobTitle}</p>
-              <p>{new Date(job?.dateApplied).toLocaleDateString()}</p>
+            <div key={job._id} className="rejection-step-box">
+              <div className="job-info">
+                <h2>{job.companyName}</h2>
+                <p>{job.jobTitle}</p>
+                <p>{new Date(job?.dateApplied).toLocaleDateString()}</p>
+              </div>
               <a
+                className="expand-info"
                 href="#"
                 onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
               >
-                View Entire Job
+                <img
+                  className="image"
+                  src="/expand.png"
+                  alt="View Entire Job"
+                />
               </a>
               <button
-                onClick={() => handleUpdateStage("Phone Screen", job?._id)}
-              >
-                right arrow
-              </button>
-              <button
-                className="rejected"
+                className="back-btn"
                 onClick={() => handleUpdateStage("Applied", job?._id)}
               >
-                Move to Job List
+                <img className="image" src="/return.png" alt="Rejected" />
               </button>
             </div>
           ))}
         </>
+        {/* </div> */}
       </div>
-    </div>
+    </>
   );
 }

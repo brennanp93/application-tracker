@@ -4,6 +4,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, 1fr);
+  font-family: 'Source Code Pro', monospace;
 }
 .stage-grid-box {
   /* border: solid black 1px; */
@@ -11,22 +12,25 @@
   grid-row: 2/7;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
   padding: 2px;
 }
 ::-webkit-scrollbar {
   display: none;
 }
-
+/* h1{
+  text-align: left;
+  margin-left: 10%;
+} */
 .applied,
 .phone-screen,
 .interviewing,
 .offer {
   grid-row: 1/5;
-  border: solid black 1px;
+  /* border: solid black 1px; */
   overflow: scroll;
   margin: 1px;
-  border-radius: 2px;
+  border-radius: 7px;
   background-color: rgb(240, 241, 241);
 }
 .applied {
@@ -47,7 +51,7 @@
 }
 
 .step-box {
-  border: solid rgb(142, 140, 140) 2px;
+  /* border: solid rgb(142, 140, 140) 2px; */
   border-radius: 7px;
   background-color: white;
   margin: 0 2% 5% 2%;
@@ -68,7 +72,8 @@
 }
 .left,
 .right,
-.rejected {
+.rejected,
+.back-btn {
   background: none;
   cursor: pointer;
   border: none;
@@ -95,4 +100,72 @@
 
 .rejected-img {
   width: 25px;
+}
+.image {
+  width: 30px;
+}
+
+
+.rejection-grid-box {
+  background-color: rgb(240, 241, 241);
+  border-radius: 7px;
+  grid-column: 1/4;
+  grid-row: 2/7;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  padding: 1%;
+  overflow: scroll;
+}
+
+.rejection-step-box{
+  border: solid rgb(142, 140, 140) 2px;
+  border-radius: 7px;
+  background-color: white;
+  margin: 0 2% 2% 2%;
+  padding: 1%;
+  display: grid;
+  grid-template-columns: 25%, 75%, 25%;
+  grid-template-rows: repeat(3, 1fr);
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.292);
+  max-height:80%;
+}
+
+.rejection-step-box>.job-info{
+grid-row: 1/4;
+place-self: center;
+}
+
+.rejection-step-box>.expand-info,.back-btn{
+  grid-row: 2/3;
+}
+
+.single-job-card{
+  border: solid black 1px;
+  background-color: rgb(240, 241, 241);
+  border-radius: 7px;
+  grid-row: 2/6;
+  grid-column: 2/3;
+}
+
+.job-description-box{
+  /* border: solid black 1px; */
+  background-color: white;
+  margin: 2%;
+  height: 20%;
+  overflow: scroll;
+}
+
+#company-name{
+background-color: white;
+margin: 5%;
+}
+#job-title{
+  background-color: white;
+  margin: 5%;
+}
+#date-applied{
+  margin: 5%;
+
+  background-color: white;
 }

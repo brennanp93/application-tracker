@@ -19,7 +19,7 @@ export default function Interviewing({
           <div className="job-info">
             <h2>{job.companyName}</h2>
             <p>{job.jobTitle}</p>
-            <p>{new Date(job?.dateApplied).toLocaleDateString()}</p>
+            {/* <p>{new Date(job?.dateApplied).toLocaleDateString()}</p> */}
           </div>
           <a
             className="expand-info"
@@ -27,7 +27,7 @@ export default function Interviewing({
             onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
           >
             <img
-              className="expand-img"
+              className="image"
               src="/expand.png"
               alt="View Entire Job"
             />
@@ -37,7 +37,7 @@ export default function Interviewing({
               onClick={() => handleUpdateStage("Interviewing", job?._id)}
             >
               <img
-                className="rejected-img"
+              className="image"
                 src="/left-arrow.png"
                 alt="Rejected"
               />
@@ -47,7 +47,7 @@ export default function Interviewing({
               onClick={() => handleUpdateStage("Rejected", job?._id)}
             >
               <img
-                className="rejected-img"
+              className="image"
                 src="/rejected-red.png"
                 alt="Rejected"
               />

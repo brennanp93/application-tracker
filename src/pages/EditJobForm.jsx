@@ -6,20 +6,17 @@ export default function EditJobForm({ jobList, editJobEntry }) {
   const { id } = useParams();
   const editedJob = jobList?.filter((job) => job._id === id)[0];
   const [updatedJob, setUpdatedJob] = useState(editedJob);
-  
-  
-  
+
   // const dateStr = updatedJob?.dateApplied;
   // const date = new Date(dateStr);
-  
+
   // const options = {
   //   month: "2-digit",
   //   day: "2-digit",
   //   year: "numeric",
   // };
-  
-  // const formattedDate = date.toLocaleDateString("en-US", options);
 
+  // const formattedDate = date.toLocaleDateString("en-US", options);
 
   function handleChange(evt) {
     const editedJobData = {
@@ -35,43 +32,55 @@ export default function EditJobForm({ jobList, editJobEntry }) {
   }
   return (
     <>
-      <div>
+      <div className="single-job-card">
+        <h5>Company Name:</h5>
         <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="companyName"
-            value={updatedJob?.companyName}
-            onChange={handleChange}
-            required
-            autoComplete="off"
-            placeholder="Company Name"
-          />
-          <input
-            type="text"
-            name="jobTitle"
-            value={updatedJob?.jobTitle}
-            onChange={handleChange}
-            required
-            autoComplete="off"
-            placeholder="Job Title"
-          />
-          <textarea
-            type="text"
-            name="jobDescription"
-            value={updatedJob?.jobDescription}
-            onChange={handleChange}
-            required
-            autoComplete="off"
-            placeholder="Job Description"
-          />
-          <input
-            type="date"
-            name="dateApplied"
-            value={updatedJob?.dateApplied}
-            onChange={handleChange}
-            required
-            autoComplete="off"
-          />
+          <div>
+            <input
+              type="text"
+              name="companyName"
+              value={updatedJob?.companyName}
+              onChange={handleChange}
+              required
+              autoComplete="off"
+              placeholder="Company Name"
+            />
+          </div>
+          <h5>Job Title:</h5>
+          <div>
+            <input
+              type="text"
+              name="jobTitle"
+              value={updatedJob?.jobTitle}
+              onChange={handleChange}
+              required
+              autoComplete="off"
+              placeholder="Job Title"
+            />
+          </div>
+          <h5>Date Applied:</h5>
+          <div>
+            <input
+              type="date"
+              name="dateApplied"
+              value={updatedJob?.dateApplied}
+              onChange={handleChange}
+              required
+              autoComplete="off"
+            />
+          </div>
+          <h5>Job Description:</h5>
+          <div>
+            <textarea
+              type="text"
+              name="jobDescription"
+              value={updatedJob?.jobDescription}
+              onChange={handleChange}
+              required
+              autoComplete="off"
+              placeholder="Job Description"
+            />
+          </div>
           <button onClick={() => navigate("/joblist")}>Go Back</button>
           <button type="submit">Submit</button>
         </form>
