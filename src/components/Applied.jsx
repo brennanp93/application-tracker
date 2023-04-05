@@ -12,7 +12,9 @@ export default function Applied({
 
   return (
     <div className="applied">
-      <h1>Applied</h1>
+      <div className="column-title">
+        <h1>Applied</h1>
+      </div>
       <>
         {appliedJobs?.map((job, idx) => (
           <div key={job._id} className="step-box">
@@ -26,31 +28,19 @@ export default function Applied({
               href="#"
               onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
             >
-              <img
-                className="image"
-                src="/expand.png"
-                alt="View Entire Job"
-              />
+              <img className="image" src="/expand.png" alt="View Entire Job" />
             </a>
             <button
               className="rejected"
               onClick={() => handleUpdateStage("Rejected", job?._id)}
             >
-              <img
-                className="image"
-                src="/rejected-red.png"
-                alt="Rejected"
-              />
+              <img className="image" src="/rejected-red.png" alt="Rejected" />
             </button>
             <button
               className="right"
               onClick={() => handleUpdateStage("Phone Screen", job?._id)}
             >
-              <img
-                className="image"
-                src="/right-arrow.png"
-                alt="Rejected"
-              />
+              <img className="image" src="/right-arrow.png" alt="Rejected" />
             </button>
           </div>
         ))}

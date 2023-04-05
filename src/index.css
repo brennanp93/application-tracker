@@ -1,6 +1,6 @@
 /* CSS Custom Properties */
 
-
+/* 
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -14,5 +14,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding: 2vmin;
   height: 100vh;
-}
+} */
 

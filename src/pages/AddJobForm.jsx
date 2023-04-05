@@ -56,18 +56,6 @@ export default function AddJobForm({ addCheckListItem, setPlanningList }) {
             placeholder="Job Title"
           />
         </div>
-        <h5>Job Description:</h5>
-        <div>
-          <textarea
-            type="text"
-            name="jobDescription"
-            value={newJob.jobDescription}
-            onChange={handleChange}
-            required
-            autoComplete="off"
-            placeholder="Job Description"
-          />
-        </div>
         <h5>Date Applied:</h5>
         <div>
           <input
@@ -77,6 +65,19 @@ export default function AddJobForm({ addCheckListItem, setPlanningList }) {
             onChange={handleChange}
             required
             autoComplete="off"
+          />
+        </div>
+        <h5>Job Description:</h5>
+        <div>
+          <textarea
+            type="text"
+            name="jobDescription"
+            value={newJob.jobDescription}
+            onChange={handleChange}
+            autoComplete="off"
+            placeholder="Job Description"
+            cols={40}
+            rows={10}
           />
         </div>
         <button type="submit">

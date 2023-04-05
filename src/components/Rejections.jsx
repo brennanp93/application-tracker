@@ -15,8 +15,8 @@ export default function Rejections({ jobList, updateStage }) {
 
   return (
     <>
-      <h1>Rejected Jobs</h1>
       <div className="rejection-grid-box">
+      <h2>Rejected Jobs</h2>
         {/* <div> */}
         <>
           {rejectedJobs?.map((job, idx) => (
