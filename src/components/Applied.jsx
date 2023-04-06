@@ -21,7 +21,6 @@ export default function Applied({
             <div className="job-info">
               <h2>{job.companyName}</h2>
               <p>{job.jobTitle}</p>
-              {/* <p>{new Date(job?.dateApplied).toLocaleDateString()}</p> */}
             </div>
             <button
               className="expand-info"
