@@ -6,8 +6,8 @@ export default function SingleJob({ jobList, deleteJob }) {
   const navigate = useNavigate();
 
   let oneJob = jobList?.filter((job) => job._id === id)[0];
-  const dateStr = oneJob?.dateApplied;
-  const date = new Date(dateStr);
+  const date = new Date(oneJob?.dateApplied);
+  date.setHours(date.getHours() + 7);
 
   const options = {
     month: "2-digit",
