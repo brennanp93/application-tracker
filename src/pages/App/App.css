@@ -9,7 +9,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(6, 1fr);
   font-family: "Source Code Pro", monospace;
-  color:rgb(85, 85, 85);
+  color: rgb(85, 85, 85);
 }
 header {
   grid-column: 1/7;
@@ -21,7 +21,7 @@ header {
   height: 75%;
 }
 
-.title-links{
+.title-links {
   grid-column: 1/5;
   grid-row: 1/2;
   display: flex;
@@ -29,23 +29,23 @@ header {
   place-self: center;
   margin-right: auto;
 }
-.title-links>h1{
-padding: 0 10px 0 5px;
+.title-links > h1 {
+  padding: 0 10px 0 5px;
 }
-nav,a{
+nav,
+a {
   margin: auto 0 auto 0%;
-  color:white;
-
+  color: white;
 }
 
-header>.log-out{
-grid-column: 5/7;
-grid-row: 1/2;
-display: flex;
-flex-direction: row;
-place-self: center;
-margin-left: auto;
-margin-right:5%;
+header > .log-out {
+  grid-column: 5/7;
+  grid-row: 1/2;
+  display: flex;
+  flex-direction: row;
+  place-self: center;
+  margin-left: auto;
+  margin-right: 5%;
 }
 .stage-grid-box {
   /* border: solid black 1px; */
@@ -132,7 +132,7 @@ position: fixed;
   grid-column: 2/3;
   grid-row: 1/4;
 }
-.job-info-btn{
+.job-info-btn {
   background: none;
   border: none;
   cursor: pointer;
@@ -203,7 +203,7 @@ position: fixed;
   margin-bottom: 5%;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.292);
 }
-.single-job-card>button{
+.single-job-card > button {
   width: 100px;
   height: 25px;
   background-color: rgb(62, 60, 172);
@@ -213,7 +213,9 @@ position: fixed;
   place-self: center;
   margin: 2%;
 }
-.single-job-card>form>button{margin: 2%;}
+.single-job-card > form > button {
+  margin: 2%;
+}
 .job-description-box {
   /* border: solid black 1px; */
   background-color: white;
@@ -232,21 +234,21 @@ position: fixed;
   margin: 5%;
 }
 
-
 .auth-page-card {
   grid-column: 2/3;
   grid-row: 2/6;
   display: grid;
   grid-template-rows: repeat(6, 1fr);
-  grid-template-columns: repeat(6,1fr);
+  grid-template-columns: repeat(6, 1fr);
   background-color: rgb(103, 105, 165);
   border-radius: 10px;
 }
-.auth-page-card>h1{
+.auth-page-card > h1 {
   grid-column: 2/6;
   color: white;
 }
-.auth-page-card>button{
+
+.auth-page-card > button {
   grid-column: 3/5;
   grid-row: 2/3;
   width: 100px;
@@ -256,28 +258,26 @@ position: fixed;
   border-radius: 10px;
   color: white;
   place-self: center;
-
 }
 
-.form-container{
+.form-container {
   grid-row: 3/6;
   grid-column: 2/6;
   place-self: center;
 }
 
-.form-container>div>form{
+.form-container > div > form {
   display: flex;
   flex-direction: column;
   color: white;
 }
-form>input{
+form > input {
   border-radius: 10px;
   border-style: hidden;
-  height:25px;
-  width:250px;
-  
+  height: 25px;
+  width: 250px;
 }
-form>button{
+form > button {
   width: 100px;
   height: 25px;
   background-color: rgb(62, 60, 172);
