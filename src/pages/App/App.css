@@ -20,11 +20,13 @@ header {
 }
 header > h1 {
   grid-column: 1/3;
+  place-self: center;
 }
 header > nav,
 a {
   grid-column: 3/7;
   color: white;
+  place-self: center;
 }
 .stage-grid-box {
   /* border: solid black 1px; */
@@ -111,6 +113,12 @@ position: fixed;
   grid-column: 2/3;
   grid-row: 1/4;
 }
+.job-info-btn{
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: "Source Code Pro", monospace;
+}
 .expand-img {
   width: 25px;
 }
@@ -175,7 +183,16 @@ position: fixed;
   grid-column: 2/3;
   margin-bottom: 5%;
 }
-
+.single-job-card>button{
+  width: 100px;
+  height: 25px;
+  background-color: rgb(62, 60, 172);
+  border-style: hidden;
+  border-radius: 10px;
+  color: white;
+  place-self: center;
+  margin: 2%;
+}
 .job-description-box {
   /* border: solid black 1px; */
   background-color: white;
@@ -230,7 +247,7 @@ position: fixed;
   place-self: center;
 }
 
-form{
+.form-container>form{
   display: flex;
   flex-direction: column;
   color: white;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function AddJobForm({ addCheckListItem, setPlanningList }) {
+export default function AddJobForm({ addCheckListItem }) {
   const navigate = useNavigate();
   const [newJob, setNewJob] = useState({
     companyName: "",

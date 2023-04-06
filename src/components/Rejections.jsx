@@ -4,9 +4,6 @@ export default function Rejections({ jobList, updateStage }) {
 
   let rejectedJobs = jobList?.filter((job) => job.stage === "Rejected");
 
-  console.log(rejectedJobs);
-  // console.log(jobList, "joblist");
-
   function handleUpdateStage(stage, id) {
     let job = jobList.filter((j) => j._id === id)[0];
     job.stage = stage;
@@ -16,15 +13,18 @@ export default function Rejections({ jobList, updateStage }) {
   return (
     <>
       <div className="rejection-grid-box">
-      <h2>Rejected Jobs</h2>
-        {/* <div> */}
+        <h2>Rejected Jobs</h2>
         <>
-          {rejectedJobs?.map((job, idx) => (
+          {rejectedJobs?.map((job) => (
             <div key={job._id} className="rejection-step-box">
               <div className="job-info">
-                <h2>{job.companyName}</h2>
-                <p>{job.jobTitle}</p>
-                <p>{new Date(job?.dateApplied).toLocaleDateString()}</p>
+                <button
+                  className="job-info-btn"
+                  onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
+                >
+                  <h2>{job.companyName}</h2>
+                  <p>{job.jobTitle}</p>
+                </button>
               </div>
               <button
                 className="expand-info"
@@ -46,7 +46,6 @@ export default function Rejections({ jobList, updateStage }) {
             </div>
           ))}
         </>
-        {/* </div> */}
       </div>
     </>
   );

@@ -9,17 +9,15 @@ const ensureLoggedIn = require("../../config/ensureLoggedIn");
 router.get("/", jobListCtrl.index);
 
 //POST /api/joblist
-router.post("/", jobListCtrl.create)
+router.post("/", jobListCtrl.create);
 
 // Delete /api/joblist/id
-router.delete(`/:id`, ensureLoggedIn, jobListCtrl.delete)
+router.delete(`/:id`, ensureLoggedIn, jobListCtrl.delete);
 
 //Edit Job Information
-router.put('/:id/update', jobListCtrl.update)
+router.put("/:id/update", jobListCtrl.update);
 
 //Update Stage
-router.put('/:id', ensureLoggedIn, jobListCtrl.updateStage)
-// POST /api/users/login
-// router.post("/login", usersCtrl.login);
+router.put("/:id", ensureLoggedIn, jobListCtrl.updateStage);
 
 module.exports = router;

@@ -1,12 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function PhoneScreen({
-  setStep,
-  deleteJob,
-  jobList,
-  updateStage,
-  handleUpdateStage,
-}) {
+export default function PhoneScreen({ jobList, handleUpdateStage }) {
   const navigate = useNavigate();
   let appliedJobs = jobList?.filter((job) => job.stage === "Phone Screen");
 
@@ -14,12 +8,16 @@ export default function PhoneScreen({
     <div className="phone-screen">
       <h1>Phone Screen</h1>
       <>
-        {appliedJobs?.map((job, idx) => (
+        {appliedJobs?.map((job) => (
           <div key={job._id} className="step-box">
             <div className="job-info">
-              <h2>{job.companyName}</h2>
-              <p>{job.jobTitle}</p>
-              {/* <p>{new Date(job?.dateApplied).toLocaleDateString()}</p> */}
+              <button
+                className="job-info-btn"
+                onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
+              >
+                <h2>{job.companyName}</h2>
+                <p>{job.jobTitle}</p>
+              </button>
             </div>
             <button
               className="expand-info"

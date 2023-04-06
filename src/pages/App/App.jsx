@@ -15,7 +15,6 @@ export default function App() {
   const [user, setUser] = useState(getUser());
   const [jobList, setJobList] = useState([]);
   const navigate = useNavigate();
-  // console.log(jobList)
   async function addCheckListItem(checkListData) {
     const newCheckListItem = await jobListAPI.create(checkListData);
     setJobList([...jobList, newCheckListItem]);

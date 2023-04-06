@@ -1,12 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function Applied({
-  setStep,
-  deleteJob,
-  jobList,
-  updateStage,
-  handleUpdateStage,
-}) {
+export default function Applied({ jobList, handleUpdateStage }) {
   const navigate = useNavigate();
   let appliedJobs = jobList?.filter((job) => job.stage === "Applied");
 
@@ -16,11 +10,16 @@ export default function Applied({
         <h1>Applied</h1>
       </div>
       <>
-        {appliedJobs?.map((job, idx) => (
+        {appliedJobs?.map((job) => (
           <div key={job._id} className="step-box">
             <div className="job-info">
-              <h2>{job.companyName}</h2>
-              <p>{job.jobTitle}</p>
+              <button
+                className="job-info-btn"
+                onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
+              >
+                <h2>{job.companyName}</h2>
+                <p>{job.jobTitle}</p>
+              </button>
             </div>
             <button
               className="expand-info"
