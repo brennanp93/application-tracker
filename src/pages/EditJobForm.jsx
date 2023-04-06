@@ -75,7 +75,7 @@ export default function EditJobForm({ jobList, editJobEntry }) {
               rows={10}
             />
           </div>
-          <button onClick={() => navigate("/joblist")}>Go Back</button>
+          <button onClick={() => navigate("/")}>Go Back</button>
           <button type="submit">Submit</button>
         </form>
       </div>

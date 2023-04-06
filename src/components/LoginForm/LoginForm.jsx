@@ -27,7 +27,7 @@ export default function LoginForm({ setUser }) {
     } catch {
       setError("Log In Failed - Try Again");
     }
-    navigate("/joblist");
+    navigate("/");
   }
 
   return (

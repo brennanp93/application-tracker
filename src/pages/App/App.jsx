@@ -24,7 +24,7 @@ export default function App() {
     await jobListAPI.deleteJob(id);
     const afterDeleteList = jobList.filter((job) => job._id !== id);
     setJobList(afterDeleteList);
-    navigate("/joblist");
+    navigate("/");
   }
 
   async function editJobEntry(updatedJobListData, id) {
@@ -32,7 +32,7 @@ export default function App() {
     await jobListAPI.editJob(updatedJobListData, id);
     const afterEdit = await jobListAPI.getAll();
     setJobList(afterEdit);
-    navigate("/joblist");
+    navigate(`/joblist/${id}/singlejob`);
   }
 
   async function updateStage(jobStageData, id) {
@@ -76,7 +76,7 @@ export default function App() {
               element={<AddJobForm addCheckListItem={addCheckListItem} />}
             />
             <Route
-              path="/joblist"
+              path="/"
               element={
                 <Stages
                   jobList={jobList}
