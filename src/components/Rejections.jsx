@@ -28,7 +28,6 @@ export default function Rejections({ jobList, updateStage }) {
               </div>
               <button
                 className="expand-info"
-                href="#"
                 onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
               >
                 <img
@@ -41,7 +40,7 @@ export default function Rejections({ jobList, updateStage }) {
                 className="back-btn"
                 onClick={() => handleUpdateStage("Applied", job?._id)}
               >
-                <img className="image" src="/return.png" alt="Rejected" />
+                <img className="image" src="/return.png" alt="Back Button" />
               </button>
             </div>
           ))}

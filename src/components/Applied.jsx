@@ -23,7 +23,6 @@ export default function Applied({ jobList, handleUpdateStage }) {
             </div>
             <button
               className="expand-info"
-              href="#"
               onClick={() => navigate(`/joblist/${job._id}/singlejob`)}
             >
               <img className="image" src="/expand.png" alt="View Entire Job" />

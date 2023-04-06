@@ -10,7 +10,7 @@ export default function NavBar({ user, setUser }) {
   return (
     <>
       <header>
-        <div className="title-links">
+        {/* <div className="title-links"> */}
           <h1>Application Tracker</h1>
           <nav>
             <Link to="/">Home</Link>
@@ -20,7 +20,7 @@ export default function NavBar({ user, setUser }) {
             <Link to="/addrecord">Add Job</Link>
             &nbsp;&nbsp;
           </nav>
-        </div>
+        {/* </div> */}
         <div className="log-out">
           <span>Welcome, {user.name}</span>
           &nbsp;&nbsp;

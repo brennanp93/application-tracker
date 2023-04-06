@@ -36,7 +36,7 @@ export default function SingleJob({ jobList, deleteJob }) {
         <div className="job-description-box">
           <p>{oneJob?.jobDescription}</p>
         </div>
-        <button onClick={() => navigate("/")}>Go Back</button>
+        <button onClick={() => navigate(-1)}>Go Back</button>
         <button onClick={() => navigate(`/joblist/${oneJob?._id}/edit`)}>
           Edit
         </button>
