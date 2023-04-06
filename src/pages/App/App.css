@@ -247,7 +247,7 @@ position: fixed;
   place-self: center;
 }
 
-.form-container>form{
+.form-container>div>form{
   display: flex;
   flex-direction: column;
   color: white;
