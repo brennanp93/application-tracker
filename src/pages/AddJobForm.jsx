@@ -21,7 +21,7 @@ export default function AddJobForm({ addCheckListItem }) {
       dateApplied: "",
       stage: "Applied",
     });
-    navigate("/joblist");
+    navigate("/");
   }
 
   function handleChange(evt) {
