@@ -76,6 +76,7 @@ export default function AddJobForm({ addCheckListItem }) {
             onChange={handleChange}
             autoComplete="off"
             placeholder="Job Description"
+            required
             cols={40}
             rows={10}
           />
