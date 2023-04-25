@@ -57,7 +57,6 @@ export default function EditJobForm({ jobList, editJobEntry }) {
               value={dateStr}
               // value={updatedJob?.dateApplied}
               onChange={handleChange}
-              required
               autoComplete="off"
             />
           </div>

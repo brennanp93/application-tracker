@@ -16,7 +16,7 @@ export default function SingleJob({ jobList, deleteJob }) {
   };
 
   const formattedDate = date.toLocaleDateString("en-US", options);
-
+  
   return (
     <>
       <div className="single-job-card">
